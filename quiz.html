@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- css stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Quiz</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- bootstrap links -->
-  <!-- css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <!-- js and jquery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-  <!-- Fontawesome Icons -->
-  <script src="https://kit.fontawesome.com/55f3aa10df.js" crossorigin="anonymous"></script>
-  <!-- css stylesheet -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- <link rel="stylesheet" href="styles.c"> -->
-  <title>Quiz</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <h1 id="score"> </h1>
-    <h2></h2>
-    <div class="container-xs">
-      <h1 id="question" onload="load()"> </h1>
+  <body>
+    <div class="wrapper">
+      <h1 id="score">Your Score</h1>
+      <h2>0 / 5</h2>
+      <div class="question container-xs">
+        <h1 id="question" onload="load()"></h1>
+      </div>
+      <div class="choices-box container-xs">
+        <button
+          class="flex-con a"
+          id="choice"
+          onclick="correctChoice(this)"
+        ></button>
+        <button
+          class="flex-con b"
+          id="choice"
+          onclick="correctChoice(this)"
+        ></button>
+        <button
+          class="flex-con c"
+          id="choice"
+          onclick="correctChoice(this)"
+        ></button>
+        <button
+          class="flex-con d"
+          id="choice"
+          onclick="correctChoice(this)"
+        ></button>
+      </div>
+      <div class="quiz-navigation container-xs">
+        <button type="button" class="primary-btn" onclick="reload()">
+          NEXT
+        </button>
+        <button type="button" class="secondary-btn">
+          <a href="index.html"> END </a>
+        </button>
+      </div>
+      <h1 id="final"></h1>
+      <button type="button" id="back" class="primary-btn">
+        <a href="index.html"> Homepage </a>
+      </button>
     </div>
-    <div class="container-xs">
-      <button class="flex-con a" id="choice" onclick="correctChoice(this)"></button>
-      <button class="flex-con b" id="choice" onclick="correctChoice(this)"></button>
-      <button class="flex-con c" id="choice" onclick="correctChoice(this)"></button>
-      <button class="flex-con d" id="choice" onclick="correctChoice(this)"></button>
-    </div>
-    <div class="container-xs">
-      <button type="button" class="btn btn-danger btn-lg home-btn" onclick="reload()"> NEXT </button>
-      <button type="button" class="btn btn-secondary btn-lg home-btn"><a href="index.html"> BACK </a></button>
-    </div>
-  </div>
-  <i id="back" class="fas fa-trophy fa-3x"></i>
-  <h1 id="final"></h1>
-  <button type="button" id="back" class="btn btn-warning btn-lg home-btn"><a href="index.html"> Homepage </a></button>
-  <script src="script.js"></script>
-</body>
-
+    <script src="./js/script.js"></script>
+  </body>
 </html>
