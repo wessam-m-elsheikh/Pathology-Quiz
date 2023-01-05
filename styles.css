@@ -1,96 +1,375 @@
-/*                       ---- 1st -----                                    */
-/* GENERAL STYLES FOR ALL PAGES */
-/* fonts used */
-/* font-family: 'Montserrat', sans-serif; */
-/* font-family: 'Oswald', sans-serif; */
+/* ----------------FONT------------------ */
+/* font-family: 'Inter', sans-serif;
+font-family: 'Oswald', sans-serif; */
 
-/* HTML ELEMENTS */
-body {
-  text-align: center;
-  background-color: #FFE6E6;
-  color: #2A0944;
-  font-family: 'Oswald', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Oswald:wght@300;500;600;700&display=swap");
+
+:root {
+  --clr-purple: #8147c7;
+  --clr-dark-purple: #2e0249;
+  --clr-pink: #df9dd0;
+  --clr-dark-pink: #c952b1;
+  --clr-sky-blue: #8cc0de;
+
+  --ff-heading: "Oswald", sans-serif;
+  --ff-text: "Inter", sans-serif;
 }
 
-h1, h2 {
-  font-weight: bold;
-  font-size: 3.5rem;
-  padding: 2%;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
 a {
-  color: #2A0944;
-}
-
-a:hover {
-  color: #ECDBBA;
   text-decoration: none;
+  color: inherit;
 }
 
-/* Containers */
-.container-xs {
-  text-align: center;
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  letter-spacing: 1px;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Set core body defaults */
+html {
+  height: 100%;
+  min-height: fit-content;
+  background-color: rgba(223, 157, 208, 0.8);
+}
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--ff-text);
+}
+
+/* ------------------------------------------- */
+/* ----------------GENERAL STYLES------------------- */
+
+.primary-btn {
+  background-color: var(--clr-purple);
+  color: #fff;
+  padding: 7px 27px;
+  border-radius: 5px;
+  border: 3px solid var(--clr-purple);
+  transition: all 0.6s;
+}
+.secondary-btn {
   font-weight: bold;
-  padding: 0 7% 1%;
+  color: var(--clr-purple);
+  padding: 7px 27px;
+  border-radius: 5px;
+  border: 3px solid var(--clr-purple);
+  transition: all 0.6s;
 }
 
-/* Buttons */
-.home-btn {
-  margin: 38px 20px 20px;
-  font-size: 1.5rem;
+.primary-btn:hover {
+  background-color: transparent;
+  color: var(--clr-purple);
   font-weight: bold;
 }
+.secondary-btn:hover {
+  background-color: var(--clr-purple);
+  color: #fff;
+  font-weight: inherit;
+}
 
-/*                       ----- 2nd ----                                    */
-/* HOMEPAGE(INDEX.HTML) */
-/* welcome image */
-.welcome-img {
+/* ------------------------------------------- */
+/* ----------------HOMEPAGE------------------- */
+.container {
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* text-align: center; */
+  margin: 0 auto;
+}
+
+.container h1 {
+  font-size: 38px;
+  text-transform: uppercase;
+}
+.text {
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--clr-dark-purple);
+}
+
+.hero-imgs {
+  margin-top: 40px;
+  width: 60%;
+  height: 60%;
+  position: relative;
+}
+
+.hero-img {
+  position: absolute;
+  width: 45%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  /* border-radius: 5px; */
+  outline-offset: 15px;
+  transition: all 0.3s;
+}
+.img1 {
+  top: 0;
+  left: 15px;
+  z-index: 2;
+}
+.img2 {
+  top: 5px;
+  right: 15px;
+  z-index: 3;
+}
+.img3 {
+  top: 60px;
+  left: 30%;
+  z-index: 4;
+}
+
+.hero-img:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+  outline: 5px solid var(--clr-dark-purple);
+  z-index: 10;
+}
+
+.nav-list {
   width: 80%;
-  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.nav-item {
+  letter-spacing: 1px;
 }
 
-/*                       ----- 3rd -----                                    */
-/* quiz_page */
-/*                         ------CLASSES------                                     */
+@media screen and (max-width: 980px) {
+  .hero-imgs {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 500px) {
+  body {
+    text-align: center;
+  }
+  .container h1 {
+    font-size: 30px;
+    margin: 20px 0;
+  }
+
+  .hero-imgs {
+    margin-top: 20px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .nav-item {
+    margin-bottom: 25px;
+  }
+}
+/* ------------------------------------------- */
+/* ----------------RULES------------------- */
+.rules {
+  text-align: center;
+  letter-spacing: 1px;
+  width: 60%;
+  max-width: 600px;
+  padding: 60px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  z-index: 100;
+
+  display: none;
+}
+
+.close {
+  width: 30px;
+  margin: -30px;
+}
+.rules-title {
+  font-family: var(--ff-heading);
+  color: var(--clr-purple);
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.rules ul {
+  text-align: left;
+  list-style: none;
+}
+.rules ul li {
+  color: var(--clr-dark-pink);
+  font-family: var(--ff-text);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/*                 quiz_page                 */
 
 /* CONTAINERS */
 .wrapper {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+.choices-box {
+  /* background-color: #8147c7; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .flex-con {
-  color: #EAEAEA;
-  font-weight: bold;
-  font-size: 3rem;
-  margin: 30px 100px;
-  display: flex;
-  width: 70%;
-  background-color: #6155A6;
-  border: 3px solid black;
-  padding: 10px;
-  box-shadow: 5px 10px black;
+  color: #eaeaea;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 10px 0;
+  width: 80%;
+  background-color: var(--clr-dark-purple);
+  border-radius: 7px;
+  border: none;
+  padding: 10px 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  transition: all ease-in-out 0.2s;
+
+  cursor: pointer;
 }
 
 .flex-con:hover {
-  cursor: pointer;
-  transform: scale(1, 1.2);
-  background-color: #FFABE1;
-  color: #000;
+  /* background-color: rgba(255, 171, 225, 70%); */
+  background-color: var(--clr-dark-pink);
+  color: rgba(0, 0, 0, 70%);
+  font-weight: 600;
 }
 
+.flex-con:active {
+  transform: translateY(2px);
+}
 /*                         ------ID------                                     */
-#question {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.5rem;
+.question {
   margin: 20px;
-  background-color: #FFABE1;
-  border: 3px solid black;
-  padding: 25px;
-  box-shadow: 5px 10px black;
+  background-color: var(--clr-pink);
+  border-radius: 15px;
+  padding: 15px 25px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6);
+}
+#question {
+  font-family: var(--ff-heading);
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+.quiz-navigation {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 #back {
   visibility: hidden;
+}
+
+h1#score,
+h2 {
+  height: 60px;
+  margin-top: 10px;
+  font-family: var(--ff-heading);
+}
+
+h1#final {
+  margin: 30px 0;
+  font-family: var(--ff-heading);
+  letter-spacing: 1.5px;
+}
+
+@media screen and (max-width: 500px) {
+  .question {
+    margin: 10px;
+    padding: 5px 15px;
+  }
+  #question {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+  .choices-box {
+    width: 80%;
+  }
+  .flex-con {
+    font-size: 16px;
+    letter-spacing: 1.2px;
+    margin: 10px 0;
+  }
+  .quiz-navigation {
+    width: 90%;
+  }
 }
