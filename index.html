@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- bootstrap links -->
-  <!-- css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <!-- js and jquery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <!-- Fontawesome Icons -->
-  <script src="https://kit.fontawesome.com/55f3aa10df.js" crossorigin="anonymous"></script>
-  <!-- css stylesheet -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Homepage -->
-  <title>Pathology Quiz</title>
-</head>
+    <!-- Fontawesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/55f3aa10df.js"
+      crossorigin="anonymous"
+    ></script>
 
-<body>
-  <!-- using an outer container that breaks at the x-small size, inside it a fluid container for the image to keep dimensions fixed for any size-->
-  <div class="container-xs">
-    <h1>General Pathology Quiz</h1>
-    <div class="containe-fluid">
-      <img class="welcome-img" src="welcome-img.png" alt="welcome-image">
+    <!-- JAVASCRIPT -->
+    <script>
+      addEventListener("DOMContentLoaded", () => {
+        const rulesBtn = document.querySelector(".rules-btn");
+        const rulesBox = document.querySelector(".rules");
+        const closeBtn = document.querySelector(".close");
+
+        rulesBtn.addEventListener("click", () => {
+          rulesBox.style.display = "block";
+        });
+        closeBtn.addEventListener("click", () => {
+          rulesBox.style.display = "none";
+        });
+      });
+    </script>
+    <!-- css stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Homepage -->
+    <title>Pathology Quiz</title>
+  </head>
+
+  <body>
+    <div class="rules" id="rules">
+      <div class="close"><img src="./images/close.svg" alt="close-icon" /></div>
+      <h1 class="rules-title">Quiz Rules</h1>
+      <ul>
+        <li>✔ Choose only one answer then hit the NEXT.</li>
+        <li>✔ Right answers turn GREEN, wrong ones turn RED.</li>
+        <li>✔ Score will increase with every correct answer.</li>
+      </ul>
     </div>
-    <button type="button" class="btn btn-primary btn-lg home-btn"><a href="quiz_rules.html"><i class="fas fa-play"></i> Let's Start</a></button>
-  </div>
-</body>
-
+    <header class="container">
+      <h1>General Pathology Quiz</h1>
+      <p class="text">ready to test your knowledge!</p>
+      <div class="hero-imgs">
+        <img class="hero-img img1" src="images/1.jpg" alt="hero-image" />
+        <img class="hero-img img2" src="images/2.jpg" alt="hero-image" />
+        <img class="hero-img img3" src="images/3.jpg" alt="hero-image" />
+      </div>
+      <ul role="list" class="nav-list">
+        <li class="nav-item">
+          <a href="quiz.html" class="nav-link primary-btn"
+            ><i class="fas fa-play"></i> Start</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link secondary-btn rules-btn">Rules</a>
+        </li>
+      </ul>
+    </header>
+    <!-- <script src="./js/script.js"></script> -->
+  </body>
 </html>
