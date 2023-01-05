@@ -4,7 +4,8 @@ var choices = Array.from(document.querySelectorAll("#choice"));
 
 //  QUESTIONs OBJECT:
 var quiz = {
-  questions: [{
+  questions: [
+    {
       question: "Pus is formed of ............ necrosis of infected tissue.",
       a: "Coagulative",
       b: "Liquifactive.",
@@ -43,13 +44,14 @@ var quiz = {
       c: "Degenaration.",
       d: "Traumatic necrosis.",
       answer: "d",
-    }
+    },
   ],
   index: 0,
-  load: function() {
+  load: function () {
     if (this.index < this.questions.length) {
       console.log(this.index);
-      question.innerHTML = (this.index + 1) + "- " + this.questions[this.index].question;
+      question.innerHTML =
+        this.index + 1 + "- " + this.questions[this.index].question;
       choices[0].innerHTML = this.questions[this.index].a;
       choices[1].innerHTML = this.questions[this.index].b;
       choices[2].innerHTML = this.questions[this.index].c;
@@ -66,13 +68,13 @@ var quiz = {
   },
 
   score: 0,
-  checkAnswer: function(choice) {
+  checkAnswer: function (choice) {
     var classname = choice.className.split(" ");
     console.log(classname[1]);
-    console.log(this.questions[this.index - 1].answer)
+    console.log(this.questions[this.index - 1].answer);
     if (classname[1] === this.questions[this.index - 1].answer) {
       this.score++;
-      choice.style.backgroundColor = "green"
+      choice.style.backgroundColor = "green";
       var end = document.querySelector("h1#score");
       end.innerHTML = "Your Score";
       var end2 = document.querySelector("h2");
@@ -85,23 +87,20 @@ var quiz = {
       var end2 = document.querySelector("h2");
       end2.innerHTML = this.score + " / " + "5";
     }
-
   },
-  final: function() {
+  final: function () {
     var final = document.querySelector("h1#final");
     var backbtn = document.querySelector("button#back");
     var trophy = document.querySelector("i#back");
     backbtn.style.visibility = "visible";
     if (this.score >= 4) {
-      final.innerHTML = "EXCELLENT.";
-      trophy.style.visibility = "visible";
+      final.innerHTML = "EXCELLENT! 😮👏";
     } else if (this.score <= 3 && this.score >= 1) {
-      final.innerHTML = "WELL DONE."
+      final.innerHTML = "WELL DONE! 🎉";
     } else {
-      final.innerHTML = "BETTER LUCK NEXT TIME."
+      final.innerHTML = "BETTER LUCK NEXT TIME.😪";
     }
-
-  }
+  },
 };
 
 // on page loading
@@ -134,5 +133,5 @@ function correctChoice(choice) {
 // reloading new Q's
 function reload() {
   quiz.load();
-  allowClick()
+  allowClick();
 }
